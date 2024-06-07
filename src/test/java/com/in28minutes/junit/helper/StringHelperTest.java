@@ -4,11 +4,18 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 public class StringHelperTest {
 
-	StringHelper helper = new StringHelper();
+	StringHelper helper;
+	
+	@Before
+	public void before() {
+		helper = new StringHelper();
+	}
 	
 	// El test pasará si no hay ningún fail
 	// No es bueno tener mas de una condicion en el test
@@ -56,6 +63,5 @@ public class StringHelperTest {
 		// actual
 		assertTrue(helper.areFirstAndLastTwoCharactersTheSame("ABAB"));
 	}
-	
 	
 }
