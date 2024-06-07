@@ -1,6 +1,8 @@
 package com.in28minutes.junit.helper;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
@@ -40,5 +42,20 @@ public class StringHelperTest {
 		// AACD => CDD, ACD => CD, CDEF => CDEF, CDAA => CDAA
 		assertEquals("CDAA", helper.truncateAInFirst2Positions("CDAA"));
 	}
+	
+	// ABCD => false, ABAB => true, AB => true, A => false
+	@Test
+	public void testAreFirstAndLastTwoCharactersTheSame_BasicNegativeScenario() {
+		// actual
+		assertFalse(helper.areFirstAndLastTwoCharactersTheSame("ABCD"));
+	}
+	
+	// ABCD => false, ABAB => true, AB => true, A => false
+	@Test
+	public void testAreFirstAndLastTwoCharactersTheSame_BasicPositiveScenario() {
+		// actual
+		assertTrue(helper.areFirstAndLastTwoCharactersTheSame("ABAB"));
+	}
+	
 	
 }
